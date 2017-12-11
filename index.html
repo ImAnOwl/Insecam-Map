@@ -4,17 +4,8 @@
   <meta http-equiv="content-type" content="text/html; charset=ANSI" />
   <title>Insecam Map</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   
   
-  <script> 
-  $(document).ready(function(){
-    alert("runs")
-    $.get('https://inseccam.oliverczempas.de/points/?json', function(data) {
-      alert(data);
-      
-    });
-    });
-  
-</script>
   <style>
    /* Always set the map height explicitly to define the size of the div
     * element that contains the map. */
@@ -65,6 +56,25 @@ mapTypeId: google.maps.MapTypeId.ROADMAP
 var infowindow = new google.maps.InfoWindow();
 
 var marker, i;
+
+
+$(document).ready(function(){
+    alert("runs")
+    $.get('https://inseccam.oliverczempas.de/points/?json', function(data) {
+      
+      var data_raw = data;
+      var data_json = JSON.parse(data_raw);
+      console.log(data_json)
+
+    });
+});
+
+
+
+
+
+
+
 
 for (i = 0; i < locations.length; i++) {
 marker = new google.maps.Marker({
