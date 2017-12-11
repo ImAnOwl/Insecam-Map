@@ -64,7 +64,12 @@ $(document).ready(function(){
       var data_raw = data;
       var data_json = JSON.parse(data_raw);
       for(x in data_json){
-          console.log(data_json[x].city);
+          //console.log(data_json[x].city);
+            marker = new google.maps.Marker({
+            position: new google.maps.LatLng(data_json[x].lat, data_json[x].lon),
+            map: map,
+            url: data_json[x].source
+            });
       }
 
     });
