@@ -62,6 +62,7 @@ $(document).ready(function(){
       
       var data_raw = data;
       var data_json = JSON.parse(data_raw);
+      i=0
       for(x in data_json){
           //console.log(data_json[x].city);
             marker = new google.maps.Marker({
@@ -75,6 +76,7 @@ $(document).ready(function(){
             infowindow.open(map, marker);
             }
             })(marker, i));
+            i++;
       }
 
     });
