@@ -57,7 +57,6 @@ var infowindow = new google.maps.InfoWindow();
 
 var marker, i;
 
-
 $(document).ready(function(){
     $.get('https://inseccam.oliverczempas.de/points/?json', function(data) {
       
@@ -70,28 +69,16 @@ $(document).ready(function(){
             map: map,
             url: data_json[x].source
             });
+            google.maps.event.addListener(marker, "click", (function(marker, i) {
+            return function() {
+            infowindow.setContent("<a href='" + data_json[x].source + "'><img id='image0' src='" + data_json[x].source + "' alt='' height='420' width='420'/><b><br>" + data_json[x].city + "</b></a>");
+            infowindow.open(map, marker);
+            }
+            })(marker, i));
       }
 
     });
 });
-
-
-
-for (i = 0; i < locations.length; i++) {
-marker = new google.maps.Marker({
-position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-map: map,
-url: locations[i][3]
-});
-
-   google.maps.event.addListener(marker, "click", (function(marker, i) {
-return function() {
-  infowindow.setContent(locations[i][0]);
-  infowindow.open(map, marker);
-}
-})(marker, i));
-
- }
 
   </script>
 </body>
