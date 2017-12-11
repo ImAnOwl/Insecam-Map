@@ -54,17 +54,16 @@ mapTypeId: google.maps.MapTypeId.ROADMAP
        handleLocationError(false, infoWindow, map.getCenter());
      }
 
-var marker, i;
+
 
 $(document).ready(function(){
     $.get('https://inseccam.oliverczempas.de/points/?json', function(data) {
       
       var data_raw = data;
       var data_json = JSON.parse(data_raw);
-      i=0
       for(x in data_json){
           //console.log(data_json[x].city);
-            marker = new google.maps.Marker({
+            var marker = new google.maps.Marker({
             position: new google.maps.LatLng(data_json[x].lat, data_json[x].lon),
             map: map,
             url: data_json[x].source
