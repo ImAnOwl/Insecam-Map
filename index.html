@@ -53,7 +53,6 @@ mapTypeId: google.maps.MapTypeId.ROADMAP
      } else {
        handleLocationError(false, infoWindow, map.getCenter());
      }
-var infowindow = new google.maps.InfoWindow();
 
 var marker, i;
 
@@ -70,13 +69,11 @@ $(document).ready(function(){
             map: map,
             url: data_json[x].source
             });
-            google.maps.event.addListener(marker, "click", (function(marker, i) {
-            return function() {
+            var infowindow = new google.maps.InfoWindow();
             infowindow.setContent("<a href='" + data_json[x].source + "'><img id='image0' src='" + data_json[x].source + "' alt='' height='420' width='420'/><b><br>" + data_json[x].city + "</b></a>");
-            infowindow.open(map, marker);
-            }
-            })(marker, i));
-            i++;
+            marker.addListener("click", function(){
+                infowindow.open(map, marker)
+            })
       }
 
     });
