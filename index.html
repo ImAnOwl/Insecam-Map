@@ -70,7 +70,8 @@ $(document).ready(function(){
             });
             var infowindow = new google.maps.InfoWindow();
             marker.addListener("click", function(){
-                infowindow.setContent("<a href='" + data_json[x].source + "'><img id='image0' src='" + data_json[x].source + "' alt='' height='420' width='420'/><b><br>" + data_json[x].city + "</b></a>");
+                //"<a href='" + data_json[x].source + "'><img id='image0' src='" + data_json[x].source + "' alt='' height='420' width='420'/><b><br>" + data_json[x].city + "</b></a>"
+                infowindow.setContent(data_json[x].city);
                 infowindow.open(map, marker)
             })
       }
