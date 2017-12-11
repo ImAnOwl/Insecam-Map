@@ -9,13 +9,14 @@ if(isset($_GET['json'])){
 foreach ($pdo->query($sql) as $row) {
     $rows[] = $row;
 }
+
 print json_encode($rows);
 
 } else {
 
     foreach ($pdo->query($sql) as $row) {
-        echo $row["country"] . " - " . $row["city"];
-        echo $row["source"];
+        echo $row["country"] . " - " . $row["city"] . "<br>";
+        echo "<a target=\"_blank\" href=". $row["source"] . ">" . $row["source"] . "</a><br><br>";
     }
 
 }
