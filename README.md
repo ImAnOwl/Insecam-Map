@@ -1,3 +1,3 @@
 # Insecam-Map
-Ein Python script für das Annzeigen von Insecam Kameras auf einer google Karte.
-Vorschau: http://jonas-leder.free-hosting.org/karte.html
+A Python script to scan all webcams on insecam.org and insert it into mysql.
+Preview: https://inseccam.oliverczempas.de/
