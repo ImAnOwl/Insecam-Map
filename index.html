@@ -63,7 +63,9 @@ $(document).ready(function(){
       
       var data_raw = data;
       var data_json = JSON.parse(data_raw);
-      console.log(data_json)
+      for(x in data_raw){
+          console.log(x);
+      }
 
     });
 });
