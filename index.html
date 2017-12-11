@@ -69,8 +69,8 @@ $(document).ready(function(){
             url: data_json[x].source
             });
             var infowindow = new google.maps.InfoWindow();
-            //infowindow.setContent("<a href='" + data_json[x].source + "'><img id='image0' src='" + data_json[x].source + "' alt='' height='420' width='420'/><b><br>" + data_json[x].city + "</b></a>");
             marker.addListener("click", function(){
+                infowindow.setContent("<a href='" + data_json[x].source + "'><img id='image0' src='" + data_json[x].source + "' alt='' height='420' width='420'/><b><br>" + data_json[x].city + "</b></a>");
                 infowindow.open(map, marker)
             })
       }
