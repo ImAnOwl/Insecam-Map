@@ -74,7 +74,7 @@ $(document).ready(function(){
             });
   }
 
-    $.get('https://inseccam.oliverczempas.de/points/?json', function(data) {
+    $.get('https://api.oliverczempas.de/inseccam/points/', function(data) {
       
       var data_raw = data;
       var data_json = JSON.parse(data_raw);
