@@ -30,10 +30,7 @@
  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1aJErZr-YTlhTvvxHGUUfNRTUMty__Y4"
    type="text/javascript"></script>
   <script type="text/javascript">
-    var locations = [
-     ["<a href='http://46.5.192.75:80/cgi-bin/faststream.jpg?stream=half&amp;fps=15&amp;rand=COUNTER'><img id='image0' src='http://46.5.192.75:80/cgi-bin/faststream.jpg?stream=half&amp;fps=15&amp;rand=COUNTER' alt='' height='420' width='420'/><b>Ettlingenweier</b></a>", 48.928480, 8.389350, "http://46.5.192.75:80/cgi-bin/faststream.jpg?stream=half&amp;fps=15&amp;rand=COUNTER"]]
-   
-   
+      
 var map = new google.maps.Map(document.getElementById("map"), {
 zoom: 5,
 center: new google.maps.LatLng(51.54376, 9.910419999999931),
@@ -68,6 +65,15 @@ $(document).ready(function(){
             map: map,
             url: data_json[x].source
             });
+
+            var infowindow = new google.maps.InfoWindow({
+              content: data_json[x].city
+            });
+
+            marker.addListener('click', function() {
+              infowindow.open(map, marker);
+            });
+
          }
 
     });
