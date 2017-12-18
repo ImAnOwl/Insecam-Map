@@ -62,13 +62,14 @@ $(document).ready(function(){
             url: data_json[x].source
             });
 
-            var contents = "<a href='" + data_json[x].source + "'><img id='image0' src='" + data_json[x].source + "' alt='' height='420' width='420'/><b>" + data_json[x].city + "</b></a>";
 
-            var infowindow = new google.maps.InfoWindow({
-              content: contents
-            });
+            
 
             marker.addListener('click', function() {
+              var contents = "<a href='" + data_json[x].source + "'><img id='image0' src='" + data_json[x].source + "' alt='' height='420' width='420'/><b>" + data_json[x].city + "</b></a>";
+              var infowindow = new google.maps.InfoWindow({
+              content: contents
+              });
               infowindow.open(map, marker);
             });
   }
