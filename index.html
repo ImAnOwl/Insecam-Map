@@ -54,13 +54,9 @@ mapTypeId: google.maps.MapTypeId.ROADMAP
 
 
 $(document).ready(function(){
-    $.get('https://inseccam.oliverczempas.de/points/?json', function(data) {
-      
-      var data_raw = data;
-      var data_json = JSON.parse(data_raw);
-      for(x in data_json){
-          //console.log(data_json[x].city);
-            var marker = new google.maps.Marker({
+
+  function marker(x, data_json){
+    var marker = new google.maps.Marker({
             position: new google.maps.LatLng(data_json[x].lat, data_json[x].lon),
             map: map,
             url: data_json[x].source
@@ -73,7 +69,16 @@ $(document).ready(function(){
             marker.addListener('click', function() {
               infowindow.open(map, marker);
             });
+  }
 
+    $.get('https://inseccam.oliverczempas.de/points/?json', function(data) {
+      
+      var data_raw = data;
+      var data_json = JSON.parse(data_raw);
+      for(x in data_json){
+          //console.log(data_json[x].city);
+            
+          marker(x, data_json);
          }
 
     });
